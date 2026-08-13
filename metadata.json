@@ -1,0 +1,6 @@
+{
+  "name": "CLASSICAL VIEWER",
+  "description": "Hybrid debugging and visualization playground for multi-agent AI systems featuring synchronized CLI logs, 3D/2D canvas topographies, error overlays, workflow reliability metrics, delegation gap tracking, and an AI Debugger Meta-Agent.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
