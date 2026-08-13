@@ -73,7 +73,7 @@
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
-|-------|------------|
+|-------|------------||
 | **Frontend Framework** | React 18 + TypeScript |
 | **Build Tool** | Vite |
 | **Styling** | Tailwind CSS |
@@ -156,7 +156,7 @@ npm run preview
 ## ⌨️ Keyboard Shortcuts
 
 | Shortcut | Action | Context |
-|----------|--------|---------|
+|----------|--------|----------|
 | **Space** | Play / Pause Simulation | Global |
 | **R** | Reset Timeline | Global |
 | **D** | Toggle Meta-Debugger | Global |
