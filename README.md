@@ -1,228 +1,202 @@
-# 🤖 Agentscope Agent
+# AgentScope Agent
 
-> **A sophisticated multi-agent AI system visualizer and debugger for real-time agent monitoring, troubleshooting, and autonomous debugging.**
+A modern TypeScript-powered multi-agent AI monitoring and debugging workspace for visualizing agent behavior, tracing execution flows, and diagnosing issues in autonomous systems.
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+<p align="center">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img alt="React" src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white" />
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img alt="Express" src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img alt="Google AI" src="https://img.shields.io/badge/Google%20AI-Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white" />
+</p>
 
----
 
-## 📋 Table of Contents
+## Overview
 
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Usage Guide](#usage-guide)
-- [Keyboard Shortcuts](#keyboard-shortcuts)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
+AgentScope Agent is designed to help developers and researchers inspect, reason about, and debug multi-agent systems in real time. It combines a structured dashboard, execution traces, and AI-assisted analysis to identify issues such as recursive loops, schema drift, delegation failures, latency spikes, and prompt ambiguity.
 
----
+The project is built for scenarios where multiple AI agents collaborate, delegate, or trigger tool calls, and where fast visibility into agent health is essential.
 
-## 🎯 Overview
 
-**Agentscope Agent** is a comprehensive platform for visualizing, monitoring, and debugging multi-agent AI systems. It provides real-time insights into agent behavior, identifies system failures, and automates debugging through an intelligent meta-debugger.
+## Why This Project
 
-### Use Cases
-- Monitor multi-agent workflows in real-time
-- Identify and isolate agent failures quickly
-- Debug system prompts autonomously
-- Visualize agent state trees and trace histories
-- Analyze performance metrics and bottlenecks
+As agent-based systems become more complex, debugging them becomes increasingly difficult. Traditional logs often do not capture the causal structure of agent interactions, decision chains, or prompt-induced failure patterns.
 
----
+AgentScope Agent addresses this by providing:
 
-## ✨ Key Features
+- A visual system overview for multi-agent execution
+- Trace-based monitoring of events and agent states
+- AI-powered root-cause analysis
+- Suggested prompt improvements for affected agents
+- A workflow optimized for troubleshooting and iteration
 
-### 🔍 Real-Time Agent Monitoring
-- **Live Swarm Troubleshooting Dashboard**: View active agent issues at a glance
-- **Issue Categorization**: Organizes problems into clear categories:
-  - Delegation Deadlocks
-  - Loop Hallucinations
-  - Schema Drifts
-  - Latency Spikes
 
-### 🤖 Autonomous Meta-Debugger
-- Intelligent AI auditor that analyzes multi-agent trace trees
-- Identifies failure patterns and hallucinations automatically
-- Generates and applies system prompt patches
-- Provides precise, actionable debugging insights
+## Key Features
 
-### 🎨 Premium Visual Design
-- **Elegant Dark Theme**: Charcoal background with gold accents
-- **Animated Backgrounds**: Dynamic moving grids and gradient waves
-- **Smooth Animations**: Fluid transitions and motion effects powered by Motion
-- **Responsive Layout**: Works seamlessly on desktop and tablet
+### Real-time monitoring
+- Live visual inspection of agent activity
+- Event timeline tracking
+- Scenario-driven debugging workflow
 
-### ⌨️ Keyboard-Driven Workflow
-- **Space**: Play/Pause agent simulation
-- **R**: Reset timeline to initial state
-- **D**: Toggle the meta-debugger panel
+### AI meta-debugger
+- Analyzes agent traces using Gemini-backed reasoning
+- Detects recurring failure modes
+- Suggests targeted fixes and updated prompts
 
-### 📊 Data Visualization
-- Interactive charts and graphs (Recharts)
-- 3D spatial visualization (D3.js)
-- Agent state tree navigation
-- Performance timeline scrubbing
+### Agent execution simulation
+- Run simulated agent steps
+- Inspect incoming messages, tool usage, and responses
+- Observe delegation and error handling behavior
 
----
+### Telemetry export
+- Export trace data in JSON format
+- Useful for analysis, documentation, and external observability pipelines
 
-## 🛠️ Tech Stack
+### Developer-friendly setup
+- Vite + React frontend
+- Express server for backend APIs
+- TypeScript-first source layout
 
-| Layer | Technology |
-|-------|------------||
-| **Frontend Framework** | React 18 + TypeScript |
-| **Build Tool** | Vite |
-| **Styling** | Tailwind CSS |
-| **Icons** | Lucide React |
-| **Animation** | Motion (Framer Motion) |
-| **Visualization** | Recharts, D3.js |
-| **Server** | Express.js + Vite Integration |
-| **Typography** | Cinzel, Serif Fonts |
 
----
+## Architecture
 
-## 🚀 Getting Started
+This project uses a lightweight full-stack architecture:
 
-### Prerequisites
-- **Node.js**: v18 or higher
-- **npm** or **pnpm**: Package manager
+- Frontend: React + TypeScript + Vite
+- Backend: Express server
+- AI integration: Google Gemini via `@google/genai`
+- Runtime: Node.js
 
-### Installation
+The server exposes API endpoints for:
+
+- health checks
+- agent debugging analysis
+- simulated agent step execution
+- telemetry export
+
+The frontend consumes these APIs to render the interactive debugging experience.
+
+
+## Project Structure
+
+```text
+Agentscope.agent/
+├── src/                     # Frontend application source
+├── index.html              # Vite entry HTML
+├── server.ts               # Express + AI API server
+├── metadata.json           # App metadata
+├── package.json            # Scripts and dependencies
+├── tsconfig.json           # TypeScript configuration
+├── vite.config.ts          # Vite configuration
+├── README.md               # Project documentation
+├── .gitignore              # Git ignore rules
+└── dist/                   # Build output (generated)
+```
+
+
+## Prerequisites
+
+Before running the project, ensure you have:
+
+- Node.js 18 or later
+- npm or pnpm
+- A valid Google Gemini API key
+
+
+## Quick Start
+
+### 1. Clone the repository
 
 ```bash
-# Clone the repository
 git clone https://github.com/saravanavel07/Agentscope.agent.git
 cd Agentscope.agent
+```
 
-# Install dependencies
+### 2. Install dependencies
+
+```bash
 npm install
-# or
-pnpm install
 ```
 
-### Running the Development Server
+### 3. Configure environment variables
+
+Create a `.env` file in the project root and add your Gemini key:
+
+```env
+GEMINI_API_KEY=your_api_key_here
+```
+
+### 4. Start the development server
 
 ```bash
-# Start the development server
 npm run dev
-
-# The application will be available at:
-# http://localhost:3000
 ```
 
-### Building for Production
+The application is served locally via the Express + Vite setup.
+
+
+## Available Scripts
 
 ```bash
-# Create optimized production build
-npm run build
-
-# Preview production build locally
-npm run preview
+npm run dev      # Start the development server
+npm run build    # Build the production bundle
+npm run start    # Start the built server
+npm run preview  # Preview the Vite build
+npm run lint     # Type-check the project
 ```
 
----
 
-## 📖 Usage Guide
+## Environment Notes
 
-### Starting a Session
-1. Open the application at `http://localhost:3000`
-2. The dashboard displays all active agents and their current status
-3. View real-time agent metrics on the main visualization panel
+The backend uses the `GEMINI_API_KEY` environment variable to initialize the Google GenAI client. If the key is missing, the API endpoints that rely on Gemini analysis will fail with a configuration error.
 
-### Troubleshooting Agents
-1. Navigate to the **Swarm Troubleshooting Column** on the left
-2. Select an agent experiencing issues
-3. Review the categorized problem (Deadlock, Hallucination, etc.)
-4. Click **Auto-Patch** to let the meta-debugger fix the system prompt
-5. Or click **Trace CLI** to inspect the detailed call stack
+In a production deployment, store this key securely using environment management or secret configuration rather than committing it into source control.
 
-### Using the Meta-Debugger
-1. Press **`D`** to open the meta-debugger drawer
-2. The AI auditor will analyze the current agent trace tree
-3. Review generated system prompt patches
-4. Apply patches to update agent behavior
 
-### Timeline Control
-- **Play/Pause**: Press **`Space`** to control simulation playback
-- **Reset**: Press **`R`** to return to the beginning
-- **Scrub**: Click on the timeline to jump to any point
+## Usage Workflow
 
----
+1. Launch the application.
+2. Configure or load a multi-agent scenario.
+3. Review the live trace and event timeline.
+4. Inspect agent behavior, delegation flow, and error severity.
+5. Use the AI meta-debugger to identify likely root causes.
+6. Apply suggested prompt updates or fix recommendations.
+7. Export telemetry for deeper analysis or reporting.
 
-## ⌨️ Keyboard Shortcuts
 
-| Shortcut | Action | Context |
-|----------|--------|----------|
-| **Space** | Play / Pause Simulation | Global |
-| **R** | Reset Timeline | Global |
-| **D** | Toggle Meta-Debugger | Global |
+## Supported Debugging Scenarios
 
-> 💡 **Tip**: Hover over the footer badge to see all shortcuts
+The system is designed for issues such as:
 
----
+- Recursive reasoning loops
+- Prompt ambiguity or weak role definitions
+- Schema mismatches between agents
+- Delegation deadlocks
+- Latency spikes or performance bottlenecks
 
-## 📁 Project Structure
 
-```
-Agentscope.agent/
-├── src/
-│   ├── components/          # React components
-│   ├── pages/              # Page views
-│   ├── styles/             # CSS files
-│   ├── utils/              # Utility functions
-│   └── App.tsx             # Main app component
-├── public/                 # Static assets
-├── server.ts               # Express server
-├── vite.config.ts          # Vite configuration
-├── tailwind.config.js      # Tailwind configuration
-└── package.json            # Dependencies
+## Contributing
+
+Contributions are welcome. To contribute:
+
+```bash
+git checkout -b feature/your-feature
+git commit -m "Add your feature"
+git push origin feature/your-feature
 ```
 
----
+Then open a pull request with a clear description of the change and its impact.
 
-## 🎓 Learning Resources
 
-- [React Documentation](https://react.dev)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs)
-- [Tailwind CSS Docs](https://tailwindcss.com/docs)
-- [Vite Guide](https://vitejs.dev/guide)
+## Support
 
----
+For issues, feature requests, or feedback, use the repository's GitHub issue tracker or discussions page.
 
-## 🤝 Contributing
 
-We welcome contributions! Here's how to get involved:
+## Notes
 
-1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/your-feature`
-3. **Commit** changes: `git commit -m "Add your feature"`
-4. **Push** to branch: `git push origin feature/your-feature`
-5. **Open** a Pull Request
-
-### Development Guidelines
-- Use TypeScript for all new code
-- Follow the existing code style
-- Write meaningful commit messages
-- Test your changes before submitting a PR
+This project is a focused tool for research, testing, and debugging agentic workflows. It is best suited for development and experimentation environments where multi-agent behavior must be inspected carefully.
 
 ---
 
-## 📝 License
-
-© 2026 Agentscope. All rights reserved.
-
----
-
-## 📧 Support
-
-For issues, questions, or feedback:
-- **GitHub Issues**: [Open an issue](https://github.com/saravanavel07/Agentscope.agent/issues)
-- **Discussions**: [Start a discussion](https://github.com/saravanavel07/Agentscope.agent/discussions)
-
----
-
-**Made with ❤️ by the Agentscope Team**
+Built for debugging agent systems with clarity, visibility, and AI-assisted reasoning.
